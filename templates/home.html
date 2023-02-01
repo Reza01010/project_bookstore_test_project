@@ -7,9 +7,9 @@
     <hr>
     <br>
     {% if user.is_authenticated %}
-        <p>Welcome {{ user.username }}   |||   <a href="{% url 'logout' %}"> log out</a></p>
+        <p>Welcome {{ user.username }}   |||   <a href="{% url 'logout' %}" class="btn btn-secondary"> log out</a></p>
     {% else %}
-        <a href="{% url 'login' %}">log in</a>   |||   <a href="{% url 'signup' %}">sign up</a>
+        <a href="{% url 'login' %}" class="btn btn-secondary">log in</a>   |||   <a href="{% url 'signup' %}" class="btn btn-secondary">sign up</a>
     {% endif %}
 
 {% endblock content %}
