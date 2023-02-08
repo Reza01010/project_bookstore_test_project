@@ -9,6 +9,7 @@
 <p>{{ book.author }}</p>
 <hr><p>{{ book.description }}</p><br>
 <h3>{{ book.price }}</h3>
-
-<a href="{% url 'book_list_view' %}">list book</a>
+<button type="button" class="btn btn-info"><a href="{% url 'book_update' book.id %}"> ویرایش </a></button><br><br>
+    <button type="button" class="btn btn-danger"><a href="{% url 'book_delete' book.id %}"> حذف </a></button><br><br>___________<br>
+<a href="{% url 'book_list_view' %}">لیست کتاب ها</a>
 {% endblock content %}

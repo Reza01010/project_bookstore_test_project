@@ -7,6 +7,8 @@
     <a href="{{b.get_absolute_url }}"><h3>{{ b.title }}</h3></a>
         <p>{{ b.author }}</p>
 
-{% endfor %}
 
+
+{% endfor %}
+<button type="button" class="btn btn-info"><a href="{% url 'book_create' %}"> ایجاد کتاب جدبد </a></button><br>
 {% endblock content %}
