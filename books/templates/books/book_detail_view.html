@@ -1,13 +1,13 @@
 {% extends '_base.html' %}
-
+{% load book_tags %}
 {% block title %}detail_book{% endblock title %}
 
 {% block content %}
 
 
-<h3>{{ book.title }}</h3>
-<p>{{ book.author }}</p>
-<hr><p>{{ book.description }}</p><br>
+<h3>{{ book.title|capfirst }}</h3>
+<p>{{ book.author|capfirst }}</p>
+<hr><p>{{ book.description|to_lowercase:'Reza'|linebreaksbr }}</p><br>
 <h3>{{ book.price }}</h3>
 <button type="button" class="btn btn-info"><a href="{% url 'book_update' book.id %}"> ویرایش </a></button><br><br>
     <button type="button" class="btn btn-danger"><a href="{% url 'book_delete' book.id %}"> حذف </a></button><br><br>___________<br>
