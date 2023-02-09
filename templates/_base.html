@@ -45,15 +45,21 @@
         </div>
     </div>
 </nav>
+{% block contentd %}
 
+{% endblock contentd %}
 
 
     <div class="col-md-8 col-md-10 mx-auto">
         <div class="container mt-4">
-
+{% if user.is_authenticated %}
             {% block content %}
 
             {% endblock content %}
+{% else %}
+
+            شما کی هستید ؟_______________________________________    <a href="{% url 'login' %}" >log in</a>   |||   <a href="{% url 'signup' %}" >sign up</a>
+{% endif %}
         </div>
     </div>
 

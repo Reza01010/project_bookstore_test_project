@@ -3,6 +3,16 @@
 {% block title %}.Home.{% endblock title %}
 
 {% block content %}
+
+  {% if user.is_authenticated %}
+        <p>Hi</p>
+
+
+    {% else %}
+
+    {% endif %}
+
+
     <h6>home.</h6>
     <hr>
     <br>
@@ -12,5 +22,5 @@
         <a href="{% url 'login' %}" class="btn btn-secondary">log in</a>   |||   <a href="{% url 'signup' %}" class="btn btn-secondary">sign up</a>
     {% endif %}
     <br><hr>
-    <a href="{% url 'password_change' %}">password_change !</a>
+    <a href="{% url 'password_change' %}">password_change !</a> <br> <a href="{% url 'book_list_view' %}" class="btn btn-outline-primary"">لیست کتاب ها</a>
 {% endblock content %}
