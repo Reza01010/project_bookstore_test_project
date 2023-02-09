@@ -3,13 +3,44 @@
 {% block title %}list_book{% endblock title %}
 
 {% block content %}
-{% for b in books %}
-    <a href="{{b.get_absolute_url }}"><h3>{{ b.title|capfirst }}</h3></a>
-    <p>{{ b.description|truncatewords:12 }}</p>
-        <p>{{ b.author }}</p>
+
+
+    <div class="row g-0 h-100" dir="rtl">
+        <div class="card m-2" style="max-width: 100%">
+            {% for b in books %}
+                <div class="container mt-4">
+                    <div class="container mt-4">
+
+                        <div class="row flex-row-reverse justify-content-md-center">
+                            <div class="card m-2" style="max-width: 45%">
+                                <div class="row g-10 h-100" dir="rtl">
+                                    <div class="col-md-4">
+                                        <img src="https://newcdn.fidibo.com/images/books/69249_94233_normal.jpg"
+                                             class="img-fluid rounded-start" alt="...">
+                                    </div>
+                                    <div class="col-md-8 h-100">
+                                        <div class="d-flex flex-column justify-content-between h-100">
+                                            <div class="card-body">
+                                                <h3 class="card-title"><a
+                                                        href="{{ b.get_absolute_url }}"><strong>{{ b.title|capfirst }}</strong></a>
+                                                </h3>
+                                                <p class="card-text pt-3">{{ b.description|truncatewords:12 }}</p>
+                                                <p class="text-muted">{{ b.author }}نویسنده: </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
 
 
 
-{% endfor %}
-<button type="button" class="btn btn-info"><a href="{% url 'book_create' %}"> ایجاد کتاب جدبد </a></button><br>
+
+            {% endfor %}
+        </div>
+    </div>
+    <button type="button" class="btn btn-info"><a href="{% url 'book_create' %}"> ایجاد کتاب جدبد </a></button><br>
 {% endblock content %}
