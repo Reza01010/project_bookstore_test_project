@@ -26,7 +26,7 @@
                             <h5 class="small my-1"><span class="text-muted">نویسنده: </span>{{ book.author|capfirst }}
                             </h5>
                             <h5 class="small my-1"><span class="text-muted">مترجم: </span>....</h5>
-                            <h5 class="small my-1"><span class="text-muted">انتشارات: </span>reza</h5>
+                            <h5 class="small my-1"><span class="text-muted">انتشارات: </span>{{ book.user }}</h5>
                         </div>
                         <div class="col-xs-12 col-md-3 d-flex flex-column">
                             <h3 class="align-self-center pt-2 text-muted align-self-md-end">
@@ -49,7 +49,7 @@
                 <button type="button" class="btn btn-danger"><a href="{% url 'book_delete' book.id %}"> حذف </a>
                 </button>
                 <br><br>___________<br>
-                <a href="{% url 'book_list_view' %}" class="btn btn-outline-primary"">لیست کتاب ها</a>
+                <a href="{% url 'book_list_view' %}" class="btn btn-outline-primary">لیست کتاب ها</a>
                 <br>
                 <hr>
                 <div class="d-flex justify-content-center">

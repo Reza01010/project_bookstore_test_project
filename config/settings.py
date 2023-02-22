@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
     # third party
     'crispy_forms',
-
+    'crispy_bootstrap5',
 
     # local
     'accounts',
@@ -139,12 +139,13 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 # crispy forms settings
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 # Email Config
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-#static files config
+
+# static files config
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
 
