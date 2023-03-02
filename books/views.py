@@ -1,5 +1,4 @@
-from abc import ABC
-
+from django import http
 from django.shortcuts import render
 from django.views import generic
 from django.urls import reverse_lazy
@@ -8,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 
 from .models import Book
-from .forms import CommentForm,CommentForm2
+from .forms import CommentForm,CommentForm2,BookForm
 
 
 class BookListView(generic.ListView):
@@ -55,9 +54,17 @@ def book_detail_view(request, pk):
 
 
 class BookCreateView(LoginRequiredMixin, generic.CreateView):
+
     model = Book
-    fields = ['title', 'author', 'description', 'price', 'cover']
+    fields = ['title', 'author', 'description', 'price', 'cover',]
     template_name = 'books/book_create.html'
+
+    def form_valid(self, form):
+        b = form.save(commit=False)
+        b.user = self.request.user
+        return super().form_valid(form)
+
+
 
 
 class BookUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
@@ -69,7 +76,7 @@ class BookUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView
         return self.get_object().user == self.request.user
 
 
-class BookDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView, ABC):
+class BookDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView, ):
     model = Book
     template_name = 'books/book_delete.html'
     success_url = reverse_lazy('book_list_view')
